@@ -22,5 +22,17 @@ public class UserService {
     public List<User> GetAllUser() {
         return userRepository.findAll();
     }
+    public User GetUserById(String id) {
+            return userRepository.findById(id).orElse(null);
+        }
+        public User UpdateUser(String id, User request) {
+            User existingUser = userRepository.findById(id).orElse(null);
+            if (existingUser != null) {
+                existingUser.setName(request.getName());
+                existingUser.setNim(request.getNim());
+                return userRepository.save(existingUser);
+            }
+            return null;
+
 
 }
