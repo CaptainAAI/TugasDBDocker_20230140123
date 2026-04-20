@@ -28,7 +28,7 @@ public class UserController {
         return userService.GetAllUser();
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public String deleteUser(@PathVariable String id){
         userService.DeleteUser(id);
         return "User deleted successfully";
