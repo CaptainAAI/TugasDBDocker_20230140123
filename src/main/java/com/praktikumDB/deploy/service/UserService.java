@@ -5,6 +5,7 @@ import com.praktikumDB.deploy.model.User;
 import com.praktikumDB.deploy.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -18,4 +19,8 @@ public class UserService {
         request.setId(UUID.randomUUID().toString());
         return userRepository.save(request);
     }
+    public List<User> GetAllUser() {
+        return userRepository.findAll();
+    }
+
 }
